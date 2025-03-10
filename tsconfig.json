@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ES2022",
+    "target": "ES2022",
+    "jsx": "react",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "esModuleInterop": true,
+    "strict": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "rootDir": "src",
+    "types": ["react", "react-dom"]
+  },
+  "include": ["src"]
+}
