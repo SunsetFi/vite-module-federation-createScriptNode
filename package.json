@@ -2,6 +2,7 @@
   "name": "vite-federation-createscriptnode",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "build": "vite build"
