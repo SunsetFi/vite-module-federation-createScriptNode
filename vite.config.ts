@@ -12,6 +12,11 @@ export default defineConfig({
     sourcemap: true,
     outDir: "dist",
   },
+  resolve: {
+    alias: {
+      "@module-federation/sdk": import.meta.resolve("@module-federation/sdk"),
+    },
+  },
   plugins: [
     react(),
     federation({
