@@ -7,9 +7,8 @@
     "esModuleInterop": true,
     "strict": true,
     "isolatedModules": true,
-    "baseUrl": ".",
-    "rootDir": "src",
-    "types": ["react", "react-dom"]
+    "baseUrl": "./node_modules",
+    "rootDir": "src"
   },
   "include": ["src"]
 }
