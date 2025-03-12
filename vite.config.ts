@@ -68,8 +68,9 @@ export default defineConfig({
     federation({
       name: "federated_module",
       filename: "remoteEntry.js",
-      // This causes us to use the mjs runtime, instead of the cjs runtime.
-      // This is because the vite plugin's default uses require.resolve instead of import.meta.resolve
+      // Hack: We are getting the CJS build of @module-federation/vite, and the MJS build is broken.
+      // Work around this by explicitly using 'our' locally installed runtime, which due to using import.meta.resolve,
+      // will resolve to the MJS version.
       implementation: import.meta.resolve("@module-federation/runtime"),
       exposes: {
         "./federated-module": "./src/federated-module.tsx",
