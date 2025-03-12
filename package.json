@@ -1,29 +1,20 @@
 {
   "name": "vite-federation-createscriptnode",
   "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "vite",
-    "build": "vite build"
+    "build": "npm --workspaces --if-present run build",
+    "start:mfe1": "cd packages/mfe-1 && npm start",
+    "start:mfe2": "cd packages/mfe-2 && npm start",
+    "start:host": "cd packages/host && npm start",
+    "start": "run-p start:*"
   },
   "author": "",
   "license": "ISC",
   "description": "",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "@module-federation/runtime": "^0.10.0",
-    "@module-federation/runtime-core": "^0.10.0",
-    "@module-federation/sdk": "^0.10.0",
-    "@module-federation/vite": "^1.2.5",
-    "@types/node": "^22.13.10",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.1"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "npm-run-all": "^4.1.5"
   }
 }
