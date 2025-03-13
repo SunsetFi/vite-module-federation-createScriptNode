@@ -1,0 +1,17 @@
+{
+  "name": "counter",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

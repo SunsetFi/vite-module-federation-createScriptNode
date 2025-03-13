@@ -21,15 +21,15 @@ export default defineConfig({
       exposes: {
         "./microfrontend": "./src/microfrontend.tsx",
       },
-      shared: ["react", "react/", "react-dom", "react-dom/", "counter"],
+      shared: ["react", "react/", "react-dom", "react-dom/"],
     }),
   ],
   server: {
-    port: 8082,
+    port: 8083,
     strictPort: true,
   },
   preview: {
-    port: 8082,
+    port: 8083,
     strictPort: true,
   },
 });

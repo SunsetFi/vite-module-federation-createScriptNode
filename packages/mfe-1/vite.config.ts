@@ -37,7 +37,7 @@ export default defineConfig({
       exposes: {
         "./microfrontend": "./src/microfrontend.tsx",
       },
-      shared: ["react", "react/", "react-dom", "react-dom/"],
+      shared: ["react", "react/", "react-dom", "react-dom/", "counter"],
     }),
   ],
   server: {

@@ -1,0 +1,2 @@
+import{a as t,g as r}from"./_commonjsHelpers-C932wzq6.js";import{d as a,f as o}from"./federated_module__mf_v__runtimeInit__mf_v__-CP6S-cNa.js";const s=t(a),{loadShare:_}=s,{initPromise:n}=o,i=n.then(e=>_("react",{customShareInfo:{shareConfig:{singleton:!1,strictVersion:void 0,requiredVersion:"^19.0.0"}}})),d=await i.then(e=>e());var m=d;const u=r(m);export{u as R,m as f,s as r};
+//# sourceMappingURL=federated_module__loadShare__react__loadShare__-BnaIAlnu.js.map

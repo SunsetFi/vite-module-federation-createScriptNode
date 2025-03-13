@@ -12,9 +12,10 @@ function FederatedModule() {
 
   return (
     <div>
-      <h2>Microfrontend 2</h2>
+      <h2>Microfrontend 3</h2>
       <h5>
-        This counter is federated and should stay in sync with Microfrontend 1
+        This microfrontend is not sharing the counter library, and so its count
+        should be independent.
       </h5>
       <div>Counter: {currentCount}</div>
       <button onClick={increment}>Increment</button>

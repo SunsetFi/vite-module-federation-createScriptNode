@@ -5,10 +5,12 @@
     "build:runtime": "cd packages/module-federation-runtime-vite && npm run build",
     "build:mfe1": "cd packages/mfe-1 && npm run build",
     "build:mfe2": "cd packages/mfe-2 && npm run build",
-    "build:mfes": "run-p build:mfe1 build:mfe2",
+    "build:mfe3": "cd packages/mfe-3 && npm run build",
+    "build:mfes": "run-p build:mfe1 build:mfe2 build:mfe3",
     "build": "npm run build:runtime && npm run build:mfes",
     "preview:mfe1": "cd packages/mfe-1 && npm run preview",
     "preview:mfe2": "cd packages/mfe-2 && npm run preview",
+    "preview:mfe3": "cd packages/mfe-3 && npm run preview",
     "preview:host": "cd packages/host && npm run start",
     "preview": "run-p preview:*"
   },
