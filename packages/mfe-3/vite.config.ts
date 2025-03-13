@@ -1,6 +1,14 @@
-import { defineConfig } from "vite";
+import { defineConfig, PreviewOptions, ServerOptions } from "vite";
 import react from "@vitejs/plugin-react";
 import { federation } from "@module-federation/vite";
+
+const server = {
+  port: 8083,
+  strictPort: true,
+  cors: {
+    origin: ["http://localhost:8080", "http://127.0.0.1:8080"],
+  },
+} satisfies ServerOptions & PreviewOptions;
 
 export default defineConfig({
   base: "./",
@@ -24,12 +32,6 @@ export default defineConfig({
       shared: ["react", "react/", "react-dom", "react-dom/"],
     }),
   ],
-  server: {
-    port: 8083,
-    strictPort: true,
-  },
-  preview: {
-    port: 8083,
-    strictPort: true,
-  },
+  server,
+  preview: server,
 });
