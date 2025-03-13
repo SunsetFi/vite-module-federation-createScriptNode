@@ -20,8 +20,8 @@ export default defineConfig({
         // Not including the extension because we can do this for both the ESM and CJS builds.
         // For the purposes of this library, this will (should) always be the ESM build.
         if (id.includes("@module-federation/runtime-core/dist/index")) {
-          // If the ESM build is used, it won't be prefixed with sdk.
-          // If the CJS build is used, it will be prefixed with sdk.
+          // If the ESM build is used, it will be a free-standing identifier.
+          // If the CJS build is used, it will be invoked from the "sdk" object.
           return code.replace(/(sdk\.)?isBrowserEnv\(\)/g, "true");
         }
       },
