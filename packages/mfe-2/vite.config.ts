@@ -2,25 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { federation } from "@module-federation/vite";
 
-const runtime = import.meta.resolve("module-federation-runtime-vite");
-
 export default defineConfig({
   base: "./",
   build: {
     target: "chrome89",
-    rollupOptions: {
-      input: ["./src/index.ts"],
-      output: {
-        format: "es",
-        manualChunks(id) {
-          // For testing, so we can see if the whitespace is minified
-          if (id.includes("module-federation-runtime-vite")) {
-            return "module-federation-runtime-vite";
-          }
-        },
-      },
-    },
     sourcemap: true,
+    rollupOptions: {
+      input: [],
+    },
   },
   plugins: [
     react(),
@@ -28,7 +17,7 @@ export default defineConfig({
       name: "federated_module",
       filename: "remoteEntry.js",
       // Use our minified runtime.
-      implementation: runtime,
+      implementation: "module-federation-runtime-vite",
       exposes: {
         "./microfrontend": "./src/microfrontend.tsx",
       },
