@@ -9,22 +9,6 @@ export default defineConfig({
       fileName: "index.js",
     },
     sourcemap: true,
-    // rollupOptions: {
-    //   input: ["./src/index.ts"],
-    //   // Don't tree-shake our index, as those exports are our library contract.
-    //   // This is one of the crucial pieces that lib mode sets automatically.
-    //   preserveEntrySignatures: "strict",
-    //   output: {
-    //     manualChunks(id) {
-    //       // Just put everything in one chunk.
-    //       return "module-federation-runtime-vite";
-    //     },
-    //     assetFileNames: "module-federation-runtime-vite.[ext]",
-    //     chunkFileNames: "module-federation-runtime-vite.[name].js",
-    //     entryFileNames: "module-federation-runtime-vite.js",
-    //     format: "es",
-    //   },
-    // },
   },
   plugins: [
     {
@@ -33,11 +17,12 @@ export default defineConfig({
       transform(code, id) {
         // Rewrite the runtime so that isBrowserEnv() becomes `true`
         // This allows esbuild to tree-shake away the non-browser (NodeJS) code paths.
-        if (id.includes("@module-federation/runtime")) {
+        // Not including the extension because we can do this for both the ESM and CJS builds.
+        // For the purposes of this library, this will (should) always be the ESM build.
+        if (id.includes("@module-federation/runtime-core/dist/index")) {
           // If the ESM build is used, it won't be prefixed with sdk.
           // If the CJS build is used, it will be prefixed with sdk.
-          const newCode = code.replace(/(sdk\.)?isBrowserEnv\(\)/g, "true");
-          return newCode;
+          return code.replace(/(sdk\.)?isBrowserEnv\(\)/g, "true");
         }
       },
     },
